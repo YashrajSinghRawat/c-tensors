@@ -1,0 +1,61 @@
+simplification of linear neural network:
+layer:1=>
+y11 = w111x1 + w112x2 + w11nxn + b11
+y12 = w121x1 + w122x2 + w12nxn + b12
+y13 = w131x1 + w132x2 + w13nxn + b13
+y1n = w1n1x1 + w1n2x2 + w1nnxn + b1n
+layer:2=>
+y21 = w211y11 + w212y12 + w21ny1n + b21
+y22 = w221y11 + w222y12 + w22ny1n + b22
+y23 = w231y11 + w232y12 + w23ny1n + b23
+y2n = w2n1y11 + w2n2y12 + w2nny1n + b2n
+layer:3=>
+y31 = w311y21 + w312y22 + w31ny2n + b31
+y32 = w321y21 + w322y22 + w32ny2n + b32
+y33 = w331y21 + w332y22 + w33ny2n + b33
+y3n = w3n1y21 + w3n2y22 + w3nny2n + b3n
+layer:n=>
+yn1 = wn11y(n-1)1 + wn12y(n-1)2 + wn1ny(n-1)n + bn1
+yn2 = wn21y(n-1)1 + wn22y(n-1)2 + wn2ny(n-1)n + bn2
+yn3 = wn31y(n-1)1 + wn32y(n-1)2 + wn3ny(n-1)n + bn3
+ynn = wnn1y(n-1)1 + wnn2y(n-1)2 + wnnny(n-1)n + bnn
+
+substitution of layer 1 in layer 2:
+y21 = w211w111x1 + w211w112x2 + w211w11nxn + w211b11 + 
+w212w121x1 + w212w122x2 + w212w12nxn + w212b12 + 
+w21nw1n1x1 + w21nw1n2x2 + w21nw1nnxn + w21nb1n + b21
+y22 = w221w111x1 + w221w112x2 + w221w11nxn + w221b11 + 
+w222w121x1 + w222w122x2 + w222w12nxn + w222b12 + 
+w22nw1n1x1 + w22nw1n2x2 + w22nw1nnxn + w22nb1n + b22
+y23 = w231w111x1 + w231w112x2 + w231w11nxn + w231b11 + 
+w232w121x1 + w232w122x2 + w232w12nxn + w232b12 + 
+w23nw1n1x1 + w23nw1n2x2 + w23nw1nnxn + w23nb1n + b23
+y2n = w2n1w111x1 + w2n1w112x2 + w2n1w11nxn + w2n1b11 + 
+w2n2w121x1 + w2n2w122x2 + w2n2w12nxn + w2n2b12 + 
+w2nnw1n1x1 + w2nnw1n2x2 + w2nnw1nnxn + w2nnb1n + b2n
+
+
+simplifying:
+y21 = x1(w211w111 + w212w121 + w21nw1n1) + x2(w211w112 + w212w122 + w21nw1n2) + 
+xn(w211w11n + w212w12n + w21nw1nn) + w211b11 + w212b12 + w21nb1n + b21
+y22 = x1(w221w111 + w222w121 + w22nw1n1) + x2(w221w112 + w222w122 + w22nw1n2) + 
+xn(w221w11n + w222w12n + w22nw1nn) + w221b11 + w222b12 + w22nb1n + b22
+y23 = x1(w231w111 + w232w121 + w23nw1n1) + x2(w231w112 + w232w122 + w23nw1n2) + 
+xn(w231w11n + w232w12n + w23nw1nn) + w231b11 + w232b12 + w23nb1n + b23
+y2n = x1(w2n1w111 + w2n2w121 + w2nnw1n1) + x2(w2n1w112 + w2n2w122 + w2nnw1n2) + 
+xn(w2n1w11n + w2n2w12n + w2nnw1nn) + w2n1b11 + w2n2b12 + w2nnb1n + b2n
+
+substitution of layer 2 in layer 3
+y31 = w311w211w111x1 + w311w211w112x2 + w311w211w11nxn + w311w211b11 + w311w212w121x1 + w311w212w122x2 + w311w212w12nxn + w311212b12 + w311w21nw1n1x1 + w311w21nw1n2x2 + w311w21nw1nnxn + w311w21nb1n + w311b21 + w312w221w111x1 + w312w221w112x2 + w312w221w11nxn + w312w221b11 + w312w222w121x1 + w312w222w122x2 + w312w222w12nxn + w312w222b12 + w312w22nw1n1x1 + w312w22nw1n2x2 + w312w22nw1nnxn + w312w22nb1n + w312b22 + w31nw2n1w111x1 + w31nw2n1w112x2 + w31nw2n1w11nxn + w31nw2n1b11 + w31nw2n2w121x1 + w31nw2n2w122x2 + w31nw2n2w12nxn + w31nw2n2b12 + w31nw2nnw1n1x1 + w31nw2nnw1n2x2 + w31nw2nnw1nnxn + w31nw2nnb1n + w31nb2n + b31
+y32 = w321w211w111x1 + w321w211w112x2 + w321w211w11nxn + w321w211b11 + w321w212w121x1 + w321w212w122x2 + w321w212w12nxn + w321212b12 + w321w21nw1n1x1 + w321w21nw1n2x2 + w321w21nw1nnxn + w321w21nb1n + w321b21 + w322w221w111x1 + w322w221w112x2 + w322w221w11nxn + w322w221b11 + w322w222w121x1 + w322w222w122x2 + w322w222w12nxn + w322w222b12 + w322w22nw1n1x1 + w322w22nw1n2x2 + w322w22nw1nnxn + w322w22nb1n + w322b22 + w32nw2n1w111x1 + w32nw2n1w112x2 + w32nw2n1w11nxn + w32nw2n1b11 + w32nw2n2w121x1 + w32nw2n2w122x2 + w32nw2n2w12nxn + w32nw2n2b12 + w32nw2nnw1n1x1 + w32nw2nnw1n2x2 + w32nw2nnw1nnxn + w32nw2nnb1n + w32nb2n + b32
+y33 = w331w211w111x1 + w331w211w112x2 + w331w211w11nxn + w331w211b11 + w331w212w121x1 + w331w212w122x2 + w331w212w12nxn + w331212b12 + w331w21nw1n1x1 + w331w21nw1n2x2 + w331w21nw1nnxn + w331w21nb1n + w331b21 + w332w221w111x1 + w332w221w112x2 + w332w221w11nxn + w332w221b11 + w332w222w121x1 + w332w222w122x2 + w332w222w12nxn + w332w222b12 + w332w22nw1n1x1 + w332w22nw1n2x2 + w332w22nw1nnxn + w332w22nb1n + w332b22 + w33nw2n1w111x1 + w33nw2n1w112x2 + w33nw2n1w11nxn + w33nw2n1b11 + w33nw2n2w121x1 + w33nw2n2w122x2 + w33nw2n2w12nxn + w33nw2n2b12 + w33nw2nnw1n1x1 + w33nw2nnw1n2x2 + w33nw2nnw1nnxn + w33nw2nnb1n + w33nb2n + b33
+y3n = w3n1w211w111x1 + w3n1w211w112x2 + w3n1w211w11nxn + w3n1w211b11 + w3n1w212w121x1 + w3n1w212w122x2 + w3n1w212w12nxn + w3n1212b12 + w3n1w21nw1n1x1 + w3n1w21nw1n2x2 + w3n1w21nw1nnxn + w3n1w21nb1n + w3n1b21 + w3n2w221w111x1 + w3n2w221w112x2 + w3n2w221w11nxn + w3n2w221b11 + w3n2w222w121x1 + w3n2w222w122x2 + w3n2w222w12nxn + w3n2w222b12 + w3n2w22nw1n1x1 + w3n2w22nw1n2x2 + w3n2w22nw1nnxn + w3n2w22nb1n + w3n2b22 + w3nnw2n1w111x1 + w3nnw2n1w112x2 + w3nnw2n1w11nxn + w3nnw2n1b11 + w3nnw2n2w121x1 + w3nnw2n2w122x2 + w3nnw2n2w12nxn + w3nnw2n2b12 + w3nnw2nnw1n1x1 + w3nnw2nnw1n2x2 + w3nnw2nnw1nnxn + w3nnw2nnb1n + w3nnb2n + b3n
+
+simplifying:
+y31 = x1(w311w211w111 + w311w212w121 + w311w21nw1n1 + w312w221w111 + w312w222w121 + w312w22nw1n1 + w31nw2n1w111 + w31nw2n2w121 + w31nw2nnw1n1) + 
+x2(w311w211w112 + w311w212w122 + w311w21nw1n2 + w312w221w112 + w312w222w122 + w312w22nw1n2 + w31nw2n1w112 + w31nw2n2w122 + w31nw2nnw1n2) + 
+xn(w311w211w11n + w311w212w12n + w311w21nw1nn + w312w221w11n + w312w222w12n + w312w22nw1nn + w31nw2n1w11n + w31nw2n2w12n + w31nw2nnw1nn) + 
+(w311w211b11 + w311212b12 + w311w21nb1n + w311b21 + w312w221b11 + w312w222b12 + w312w22nb1n + w312b22 + w31nw2n1b11 + w31nw2n2b12 + w31nw2nnb1n + w31nb2n + b31)
+y32 = w321w211w111x1 + w321w211w112x2 + w321w211w11nxn + w321w211b11 + w321w212w121x1 + w321w212w122x2 + w321w212w12nxn + w321212b12 + w321w21nw1n1x1 + w321w21nw1n2x2 + w321w21nw1nnxn + w321w21nb1n + w321b21 + w322w221w111x1 + w322w221w112x2 + w322w221w11nxn + w322w221b11 + w322w222w121x1 + w322w222w122x2 + w322w222w12nxn + w322w222b12 + w322w22nw1n1x1 + w322w22nw1n2x2 + w322w22nw1nnxn + w322w22nb1n + w322b22 + w32nw2n1w111x1 + w32nw2n1w112x2 + w32nw2n1w11nxn + w32nw2n1b11 + w32nw2n2w121x1 + w32nw2n2w122x2 + w32nw2n2w12nxn + w32nw2n2b12 + w32nw2nnw1n1x1 + w32nw2nnw1n2x2 + w32nw2nnw1nnxn + w32nw2nnb1n + w32nb2n + b32
+y33 = w331w211w111x1 + w331w211w112x2 + w331w211w11nxn + w331w211b11 + w331w212w121x1 + w331w212w122x2 + w331w212w12nxn + w331212b12 + w331w21nw1n1x1 + w331w21nw1n2x2 + w331w21nw1nnxn + w331w21nb1n + w331b21 + w332w221w111x1 + w332w221w112x2 + w332w221w11nxn + w332w221b11 + w332w222w121x1 + w332w222w122x2 + w332w222w12nxn + w332w222b12 + w332w22nw1n1x1 + w332w22nw1n2x2 + w332w22nw1nnxn + w332w22nb1n + w332b22 + w33nw2n1w111x1 + w33nw2n1w112x2 + w33nw2n1w11nxn + w33nw2n1b11 + w33nw2n2w121x1 + w33nw2n2w122x2 + w33nw2n2w12nxn + w33nw2n2b12 + w33nw2nnw1n1x1 + w33nw2nnw1n2x2 + w33nw2nnw1nnxn + w33nw2nnb1n + w33nb2n + b33
+y3n = w3n1w211w111x1 + w3n1w211w112x2 + w3n1w211w11nxn + w3n1w211b11 + w3n1w212w121x1 + w3n1w212w122x2 + w3n1w212w12nxn + w3n1212b12 + w3n1w21nw1n1x1 + w3n1w21nw1n2x2 + w3n1w21nw1nnxn + w3n1w21nb1n + w3n1b21 + w3n2w221w111x1 + w3n2w221w112x2 + w3n2w221w11nxn + w3n2w221b11 + w3n2w222w121x1 + w3n2w222w122x2 + w3n2w222w12nxn + w3n2w222b12 + w3n2w22nw1n1x1 + w3n2w22nw1n2x2 + w3n2w22nw1nnxn + w3n2w22nb1n + w3n2b22 + w3nnw2n1w111x1 + w3nnw2n1w112x2 + w3nnw2n1w11nxn + w3nnw2n1b11 + w3nnw2n2w121x1 + w3nnw2n2w122x2 + w3nnw2n2w12nxn + w3nnw2n2b12 + w3nnw2nnw1n1x1 + w3nnw2nnw1n2x2 + w3nnw2nnw1nnxn + w3nnw2nnb1n + w3nnb2n + b3n
